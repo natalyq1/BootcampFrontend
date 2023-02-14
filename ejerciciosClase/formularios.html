@@ -9,20 +9,20 @@
 </head>
 
 <body>
-  <form>
+  <form action="submit" get="script.php">
   <h2>Rellena tu CV</h2>
 
   <label for="">Nombre</label><br />
-  <input type="text" placeholder="Juan" maxlength="30"><br /><br />
+  <input name="nombre" type="text" placeholder="Juan" maxlength="30"><br /><br />
 
   <label for="">Apellidos</label><br />
-  <input type="text" placeholder="Gomez" maxlength="80"><br /><br />
+  <input name="apellido" type="text" placeholder="Gomez" maxlength="80"><br /><br />
 
   <label for="">Contraseña</label><br />
-  <input type="password" placeholder="******" max="10"><br /><br />
+  <input name="password" type="password" placeholder="******" max="10"><br /><br />
 
   <label for="">DNI</label><br />
-  <input type="number" placeholder="" min="6" max="12"><br /><br />
+  <input name="dni" type="number" placeholder="" minlength="0" maxlength="12"><br /><br />
 
   <label for="">Sexo</label><br />
   <input type="radio" id="" name="pregunta" value="" checked>
@@ -31,13 +31,14 @@
   <label for="html">Mujer</label><br /><br />
 
   <label for="">Incluir mi foto </label<br />
-    <input type="email" placeholder="">
+    <input type="text" placeholder="">
     <input type="file" value="Elegir..."/>
     <br /><br />
 
     <input type="checkbox" checked /> <label for="">Suscribirme al boletín de novedades.</label>
     <br><br>
     <input type="submit" value="Guardar Cambios">
+    <!--si yo doy clic, en la barra de navegacion aparecera cada dato por aparte en la url-->
   </form>
 </body>
 
