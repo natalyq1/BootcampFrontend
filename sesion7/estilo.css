@@ -69,3 +69,29 @@ a{
 .text__profile{
     font-size: large;
 }
+
+
+/*****footer****/
+.box__contact{
+    padding: 0;
+    margin: 2em 4em;
+    border-radius: 12px;
+    color: bisque;
+    box-shadow:  6px 6px 13px rgba(100, 48, 104, 0.8),
+             -6px -6px 18px rgba(122, 58, 127, 0.8);
+}
+.box__contact{
+    box-shadow: none;
+}
+.box__contact li{
+    margin: 1em;
+    list-style: none;
+}
+.box__contact i{
+    margin: 0 0.5em;
+}
+.box__contact ul{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+}
