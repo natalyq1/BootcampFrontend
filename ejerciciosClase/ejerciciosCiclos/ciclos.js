@@ -108,7 +108,7 @@ Ej: si ingresamos el valor 5, el resultado será:
 **
 ***
 ****
-*****/
+****
 var num = parseInt(prompt("Ingrese un numero entero"))
 var asterisco =("*")
 var acumulador= num
@@ -122,3 +122,15 @@ for (let index = 1; index <= num; index++) {
         lista *=(asterisco)
         
     }}
+*/
+var num = parseInt(prompt("Ingrese un numero entero"))
+var cadena = ''
+var fila = ''
+var inicia = ''
+
+for (let index = 1; index <= num; index++) {
+    for (let inicia = 0; inicia <= index; inicia++) {
+        fila +='*'
+    }
+    cadena += fila +'\n'
+}console.log(cadena);
