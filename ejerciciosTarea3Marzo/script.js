@@ -13,55 +13,41 @@ alert(`La temperatura en grados Fahrenheit es: ${far}`)
 //da un loop
 
 /*
-var num = parseInt(prompt("Ingrese un numero entero"))
-var cadena = ''
-var fila = ''
-var inicia = 1
-let index= 1
-for (index; index <= num; index++) {
-    for (inicia; inicia <= index; inicia++) {
-        fila +='*'
-    }
-    cadena += fila +'\n'
-}console.log(cadena);
 
-var linea = fila.length
-console.log(linea);
-var i = linea
- for (i; i >= 0; i--) {
-    console.log(i);
-    console.log(inicia);
-    console.log(num);
+var num = parseInt(prompt('Ingrese un numero'))
+var asteriscos= ''
+//for no.1 maneja los niveles, renglones, lineas
+for (var i = 1; i <= num; i++){
+//for no. 2 maneja los asteriscos
+for (var j = 1; j <= i; j++) {
+asteriscos = asteriscos + "*";
+}
+console.log(asteriscos);
+asteriscos = "";
+}
 
-while (num > 0) {
-    for (num; num < inicia; num--) {
-        fila -='*'
-    }
-    
-}cadena -= fila +'\n'
-}console.log(cadena);
-*/
+for (var i = num-1; i > 0 ; i--){
+  for (var j = i; j > 0; j--) {
+  asteriscos = asteriscos + "*";
+  }
+console.log(asteriscos);
+asteriscos = '';
+}*/
+
 
 
 
 /*3) funciona */
 /*
 var numero = parseInt(prompt('Ingrese un numero a multiplicar'))
-const factorial = numero => {
-	if (numero < 0) numero = numero * -1;
-	if (numero <= 0) return 1;
-	let factorial = 1;
-	while (numero > 1) {
-		factorial = factorial * numero;
-		numero--;
-	}
-	return factorial;
-}
-
-for (let x = 0; x <= numero; x++) {
-	console.log(`El factorial de ${x} es ${factorial(x)}`);
-}
+var factorial = 1
+	for (var i = 1; i <= numero; i++){
+    factorial = factorial *i
+  }
+alert(factorial)
 */
+
+
 
 /**5 funciona */ 
 /*
@@ -80,6 +66,7 @@ while (numero > 0 && numero === numeroInicial) {
   }
 }
 */
+
 
 
 /**4 funciona*/
