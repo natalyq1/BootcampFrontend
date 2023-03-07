@@ -1,93 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formularios</title>
-    <!-- <style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formularios</title>
+  <!-- <style>
       fieldset {
         border: 0;
         outline: none;
       }
     </style> -->
-  </head>
-  <body>
-    <h1>Forms</h1>
+</head>
+
+<body>
+  <h1>Forms</h1>
+  <hr />
+
+  <form action="">
+    <fieldset>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="nombre" tabindex="2" />
+    </fieldset>
+    <fieldset>
+      <label for="">Countries where you can work</label>
+      <select name="pais" id="countries" tabindex="3">
+        <option value="">Select the country</option>
+        <option value="co">Colombia</option>
+        <option value="ec">Ecuador</option>
+        <option value="vz">Venezuela</option>
+        <option value="cu">Cuba</option>
+        <option value="br">Brasil</option>
+        <option value="ar" selected>Argentina</option>
+        <option value="bo">Bolivia</option>
+        <option value="ch">Chile</option>
+        <option value="pe">Perú</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="">Biography</label>
+      <textarea name="bio" id="bio" cols="10" rows="5" tabindex="1"></textarea>
+    </fieldset>
+    <button>Send to the server</button>
+    <input type="submit" value="Enviar información" />
     <hr />
+    <fieldset>
+      <legend>Basic data</legend>
+      <label>First name</label>
+      <input type="text" />
+      <label>Last name</label>
+      <input type="text" />
+    </fieldset>
+    <fieldset>
+      <label>Password</label>
+      <input type="password" />
+      <input type="reset" />
+    </fieldset>
+    <fieldset>
+      <legend>Academic level</legend>
+      <input type="radio" id="primary" name="academic" value="P" checked /><label for="primary">Primary</label>
+      <br />
+      <input type="radio" id="highschool" name="academic" value="H" /><label for="highSchool">High school</label>
+      <br />
+      <input type="radio" id="master" name="academic" value="M" /><label for="master">Master</label>
+      <br />
+      <input type="radio" id="phd" name="academic" value="D" /><label for="PhD">Doctorate</label>
+    </fieldset>
+    <!--Elemento oculto-->
+    <input type="hidden" name="csrftoken" value="yasfnuhf766fy"></input>
 
-    <form action="">
-      <fieldset>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="nombre" tabindex="2" />
-      </fieldset>
-      <fieldset>
-        <label for="">Countries where you can work</label>
-        <select name="pais" id="countries" tabindex="3">
-          <option value="">Select the country</option>
-          <option value="co">Colombia</option>
-          <option value="ec">Ecuador</option>
-          <option value="vz">Venezuela</option>
-          <option value="cu">Cuba</option>
-          <option value="br">Brasil</option>
-          <option value="ar" selected>Argentina</option>
-          <option value="bo">Bolivia</option>
-          <option value="ch">Chile</option>
-          <option value="pe">Perú</option>
-        </select>
-      </fieldset>
-      <fieldset>
-        <label for="">Biography</label>
-        <textarea
-          name="bio"
-          id="bio"
-          cols="10"
-          rows="5"
-          tabindex="1"
-        ></textarea>
-      </fieldset>
-      <button>Send to the server</button>
-      <input type="submit" value="Enviar información" />
-      <hr />
-      <fieldset>
-        <legend>Basic data</legend>
-        <label>First name</label>
-        <input type="text" />
-        <label>Last name</label>
-        <input type="text" />
-      </fieldset>
-      <fieldset>
-        <label>Password</label>
-        <input type="password" />
-        <input type="reset" />
-      </fieldset>
-      <fieldset>
-        <legend>Academic level</legend>
-        <input
-          type="radio"
-          id="primary"
-          name="academic"
-          value="P"
-          checked
-        /><label for="primary">Primary</label>
-        <br />
-        <input type="radio" id="highschool" name="academic" value="H" /><label
-          for="highSchool"
-          >High school</label
-        >
-        <br />
-        <input type="radio" id="master" name="academic" value="M" /><label
-          for="master" 
-          >Master</label
-        >
-        <br />
-        <input type="radio" id="phd" name="academic" value="D" /><label
-          for="PhD"
-          >Doctorate</label
-        >
-      </fieldset>
-    </form>
+  </form>
 
-    <button>It doesn't send anything to the server</button>
-  </body>
+  <button>It doesn't send anything to the server</button>
+</body>
+
 </html>
