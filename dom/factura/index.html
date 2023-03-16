@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Aprendiendo Eventos y triggers</h1>
 
-    <button id="boton">Click on me</button>
-    <br />
-    <hr />
-    <br />
-    <input type="text" id="texto" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio Factura</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <h3 id="resultado"></h3>
-    
+<body>
 
-    <br />
-    <hr />
-    <br />
-    <button id="add">Agregar fila</button>
+  <main>
 
-    <br />
-    <br />
-    <table id="tabla" border="1"></table>
+    <form action="">
+      <h1>Comercio</h1>
 
+      <h5 class=""> Complete el siguiente formulario</h5>
+      <input type="text" id="nombre" placeholder="Nombre" />
+      <input type="text" id="apellido" placeholder="Apellido" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="number" id="telefono" placeholder="Telefono" />
+      <input type="date" id="fecha" />
+    </form>
 
-
-
-    <h1>Factura</h1>
-      <input type="text" id="nombre"/>
-      <input type="text" id="apellido"/>
-      <input type="email" id="email"/>
-      <input type="number" id="telefono"/>
-      <input type="date" id="fecha"/>
+<button id="guardaCliente" class="btnCreate">Guardar Cliente</button>
+    <form>
       
-    
-    <script src="./script.js"></script>
-  </body>
+      <h2>Informacion del cliente:</h2>
+      <table id="tablaCliente" class="tables">
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Fecha</th>
+        </tr>
+      </table>
+    </form>
+
+    <form action="">
+      <h5 class=""> Ingrese los productos a comprar </h5>
+
+      <input type="text" id="producto" placeholder="Producto" />
+      <input type="number" id="cantidad" placeholder="Cantidad" />
+      <input type="number" id="precio" placeholder="Precio" />
+    </form>
+
+
+    <button id="guardaProducto" class="btnCreate">Guardar Producto</button>
+
+    <form action="">
+      <h2>Productos:</h2>
+      <table id="tablaProductos" class="tables">
+        <tr>
+          <th>Cantidad</th>
+          <th>Productos</th>
+          <th>Precios</th>
+        </tr>
+      </table>
+
+      <br>
+      <h3>Total a pagar:</h3>
+      <h3 id="precioTotal" class="total"> </h3>
+    </form>
+
+  </main>
+  <script src="./script.js"></script>
+</body>
+
 </html>

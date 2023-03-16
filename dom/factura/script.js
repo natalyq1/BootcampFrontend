@@ -1,45 +1,58 @@
+document.getElementById("guardaCliente").addEventListener("click", function () {
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let email = document.getElementById("email").value;
+  let telefono = document.getElementById("telefono").value;
+  let fecha = document.getElementById("fecha").value;
 
-var tabla = document.getElementById("tabla");
-var btn = document.getElementById("add");
-var miTabla = "";
+  let tablaCliente = document.getElementById("tablaCliente").insertRow(0);
 
-btn.addEventListener("click", function () {
-  //forma 1
-  var fila = document.createElement("tr"); //crear una etiqueta "tr"
-  var col = document.createElement("td");
-  var dato = document.createTextNode("Este es un dato de prueba");
+  let nombreCell = tablaCliente.insertCell(0);
+  let emailCell = tablaCliente.insertCell(1);
+  let telefonoCell = tablaCliente.insertCell(2);
+  let fechaCell = tablaCliente.insertCell(3);
 
-  col.appendChild(dato); //le agregamos un "hijo" a la columna
-  fila.appendChild(col); //le agregamos un "hijo" a la fila
-
-  tabla.appendChild(fila); //le agregamos a la tabla, una fila, que adentro tiene una columna con un dato
-
-  //forma 2
-  miTabla = miTabla + "<tr><td>Hola chicos como están</td></tr>";
-  tabla.innerHTML = miTabla;
+  nombreCell.innerHTML = nombre + " " + apellido;
+  emailCell.innerHTML = email;
+  telefonoCell.innerHTML = telefono;
+  fechaCell.innerHTML = fecha;
 });
 
-/*
-EJERCICIO
-Se le solicita al usuario que ingrse:
-- Nombre, Apellido, Email y Telefono
-- Fecha
-- Productos (cantidad, nombre del producto y precio)
-Cuando haga click en un botón "Generar factura": 
-- mostrar todos los datos (ordenados), calculando el total a pagar
-FACTURA
-nombre apellido
-email
-telefono
-fecha
-CANT.  PRODUCTOS    PRECIO
-1      Zapatilla    $100
-3      Caramelos    $67
-Total a pagar= $167
-*/
+var arrayCantidad = [];
+var arrayPrecio = [];
 
-var nombre = getElementById("nombre")
-var apellido = getElementById("apellido")
-var email = getElementById("email")
-var telefono = getElementById("telefono")
-var fecha = getElementById("fecha")
+function precioTotal() {
+  let total = 0;
+
+  let cantidad = document.getElementById("cantidad").value;
+  let precio = document.getElementById("precio").value;
+
+  arrayCantidad.push(cantidad);
+  arrayPrecio.push(precio);
+
+  for (let i = 0; i < arrayCantidad.length; i++) {
+    total += arrayCantidad[i] * arrayPrecio[i];
+  }
+
+  document.getElementById("precioTotal").innerHTML = total;
+}
+
+document
+  .getElementById("guardaProducto")
+  .addEventListener("click", function () {
+    let nombre = document.getElementById("producto").value;
+    let cantidad = document.getElementById("cantidad").value;
+    let precio = document.getElementById("precio").value;
+
+    let tablaCliente = document.getElementById("tablaProductos").insertRow(0);
+
+    let cantidadCell = tablaCliente.insertCell(0);
+    let nombreCell = tablaCliente.insertCell(1);
+    let precioCell = tablaCliente.insertCell(2);
+
+    cantidadCell.innerHTML = cantidad;
+    nombreCell.innerHTML = nombre;
+    precioCell.innerHTML = precio;
+
+    precioTotal();
+  });
