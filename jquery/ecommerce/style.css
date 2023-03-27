@@ -1,0 +1,13 @@
+.secProductos{
+    display: flex;
+    flex-wrap: wrap;
+}
+.oneLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card{
+    margin: 1em;
+
+}
