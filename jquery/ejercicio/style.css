@@ -1,0 +1,16 @@
+div{
+    display: flex;
+    flex-direction: row;
+}
+section{
+    border: 2px solid purple;
+    margin: 1em;
+    padding: 1em;
+}
+select, button{
+    margin: 1em;
+    
+}
+button{
+    background: #9ddece;
+}
