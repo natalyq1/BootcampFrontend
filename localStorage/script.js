@@ -4,7 +4,7 @@ console.log("localStorage: " + localStorage.getItem("nombre"));
 localStorage.removeItem("nombre");
 
 var num1 = 8;
-localStorage.setItem("num2", 7);
+//localStorage.setItem("num2", 7);
 
 console.log(num1);
 console.log(localStorage.getItem("num2"));
