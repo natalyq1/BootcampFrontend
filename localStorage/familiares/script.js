@@ -13,7 +13,13 @@ $(document).ready(function () {
     console.log(datosLocales);
     for (let j = 0; j < datosLocales.length; j++) {
       var element = datosLocales[j];
+      $("#lista").append("<li>" + element + "</li>");
+      element += datosLocales;
     }
-    $("#lista").append("<li>" + element + "</li>");
+    
   });
 });
+
+//Hacer un algoritmo que el usario vaya agregando los distintos familiares que tiene, y se guarden
+//en un localStorage, luego de que haga click en un botón.
+//Si hace click en otro botón, se muestra en una lista, todos los elementos anteriores (familiares)
