@@ -1,0 +1,390 @@
+SQL-Structured Query language
+Es un lenguaje estandar para acceder y manipular base de datos.
+
+RELACIONAL Y NO RELACIONAL
+
+MONGO DB
+forma para realizar consultas
+    { clave: "valor" }
+    {nombre:"Kara"}
+
+operadores matematicos
+$eq --> igual que (equal)
+{precio: {$eq:'400'}}
+
+$ne --> distinto que (not equal)
+{nombre: {$ne:'Marillin'}}
+$gt --> mayor que (greater than)
+$gte ---> valores mayores o iguales que (greater than or equal)
+$lt ----> valores menores que (lower than)
+$lte ---> valores menores o iguales que (lower than or equal)
+
+operadores logicos(and)
+, ---> and
+{ genero: 'F', edad: { $lt:18 } }
+{genero: 'F',edad: {$lt:18} , talle: {$ne:'L'}}
+
+extras:
+**string que termine con determinado valor
+mlip@mail.com
+{email :{$regex: /nifty.com$/}}
+
+**string que empiece con letra especifica(mayuscula o minuscula)
+mlip@mail.com
+{nombre :{$regex: /^a/i}}
+
+{apellido :{$regex: /^p/i}, fec_nac: {$regex: /1992$/}, idioma: {$ne: 'Italian'}	}
+
+**string que contenga determinado valor
+@
+{email :{$regex: /@/}}
+
+operadores logicos(or)
+{ $or: [ {genero: "M"}, {edad: {$eq:18}} ] }
+
+{apellido:{$regex:/^D/}, $or:[{genero: "F"}, {edad:{$gte:50}}]}
+
+
+operadores logicos(entre tal y tal)
+filter:
+{edad:{$gte:20, $lte:30}}
+project
+{email: 1, _id:0}
+
+{
+    "email": "cdebrettt@zdnet.com"
+  }
+
+
+  project:{edad: 1,nombre:1, _id:0}
+  sort: {edad:-1, nombre: 1} //-1 mayor a menor  1 menor a mayor
+  "Allan"
+90
+"Anthe"
+90
+"Carolann"
+90
+"Clo"
+90
+"Cymbre"
+90
+"Geno"
+90
+"Haskel"
+90
+"Jewel"
+90
+"Merry"
+90
+
+Ejericio grupal:
+
+- Alquiler de autos
+- Crear la colección correspondiente (sólo una)
+- Insertar al menos 5 documentos (con los datos necesarios)
+- CONSULTAS:
+  - buscar documentos que el auto sea marca: "Peugeot" 
+ { marca: {$eq:'Peugeot'}}
+
+  - buscar documentos que el total (precio) sea mayor a 10000 o que el cliente exista, ordenar por precio de menor a mayor
+
+  {precio:{$gt:10000},id_cliente:{$exists :true}} 
+  {precio: 1, _id: 0}
+  - buscar documentos que fecha de alquiler sea del 2022 (usar regex)
+  {fecha_alquiler: {$regex: /2022$/}}
+  - buscar todos los documentos de un cliente en particular, mostrar sólo el campo total. 
+  {id_cliente: {$eq:1255555}}
+{precio: 1, _id: 0}
+
+  - buscar documentos que el auto alquilado NO sea "Audi" y SI sea "Fiat" o "Chevrolet" o "Ford"
+  { marca: {$ne:'Audi'} $or: [ {marca: {$eq:'Fiat',$eq:'Ford'}}]}
+
+  
+{ $or: [ {genero: "M"}, {edad: {$eq:18}} ] }
+
+
+  marca Audi, Peugeot, Fiat, Chevrolet, Ford, 
+  total
+  nombre_cliente
+  id_cliente
+  email
+  fecha_alquiler
+
+  Obtener el nombre y apellido de las primeras 10 personas que su nombre comience con A, 
+ordenarlo de mayor a menor por la edad
+filter: {nombre: {$regex: /^A/}}
+project: {nombre :-1, apellido:1, _id:0}
+limit: 10
+
+1"Asa"
+2"Allys"
+3"Andrew"
+4"Archibaldo"
+5"Ari"
+6"Adey"
+7"Aube"
+8"Arri"
+9"Amye"
+10"Adolphus"
+
+Mostrar los 2º 6 documentos de personas que tengan una "h" en su apellido, o no tengan una "x" en su email.
+Y el talle sea M o S pero no tengan más de 30 años de edad, y hayan nacido los primeros 2 días del año.
+
+
+{ 
+$or: [ {apellido: {$regex: /h/}}, {email: {$not: /x/}} ] , 
+$or: [{talle:"M"}, {talle:"S"} ] ,
+{edad: {$lte: 30}}, 
+{fec_nac: {$regex: /^01/01/}} , {fec_nac: {$regex: /^02/01/}}
+}
+
+
+{$or:[{ apellido:{$regex:/h/i} }, {email:{$not:/x/}}] , 
+$or:[{talle:"M"},{talle:"S"}], 
+edad:{$lte:30}, 
+$or:[{fec_nac:{$regex:/^01/}}, {fec_nac:{$regex:/^02/}}] , fec_nac:{$regex: /^.*\/01\/.*$/}}
+
+{$or:[{apellido: {$regex: /h/}}, {email:{$not:/x/}}], 
+$or:[{talle:"M"}, {talle:"S"}],
+edad:{$lte: 30},
+$or:[{fec_nac: {$regex: /^01/}},{fec_nac:{$regex: /^02/}}]}
+
+
+
+MONGO, terminal cmd
+mongosh --version
+mongosh --help
+mongosh "mongodb+srv://cluster1.5ld4yip.mongodb.net/myFirstDatabase" --apiVersion 1 --username database
+    luego ingreso mi contraseña
+Atlas atlas-u0svp5-shard-0 [primary] myFirstDatabase> 
+muestra bases de datos    
+    show dbs
+use base_de_datos_X ----> se posiciona adentro de la base de datos X
+use nueva_bd ---> crea una base de datos nueva llamada "nueva_bd"
+show collections ----> muestra las colecciones de esa BD
+mes sale las que tengo
+db.createCollection('Colection_prueba') ----> crea una colection
+db.Colection_prueba.drop() ---->elimina la colection
+
+use prueba2
+    Atlas atlas-u0svp5-shard-0 [primary] prueba2>
+
+    db.Personas.find(
+        ... {
+        ... talle:'L'
+        ... }
+        ... )
+
+    db.Personas.find({edad:{$gte: 18}, genero: 'F'})
+    db.Personas.find({nombre:{$regex: /a$/}, talle: 'S'})
+
+    db.Personas.find({nombre:{$regex: /a$/}, talle: 'S'}).count()// me dice cuantos hay
+
+    db.Personas.find({}, {nombre: 1, _id:0})
+[
+  { nombre: 'Marillin' },   { nombre: 'Maxie' },
+  { nombre: 'Roosevelt' },  { nombre: 'Asa' },
+  { nombre: 'Etta' },       { nombre: 'Barri' },
+  { nombre: 'Marcelle' },   { nombre: 'Urson' },
+  { nombre: 'Win' },        { nombre: 'Paola' },
+  { nombre: 'Muire' },      { nombre: 'Bradney' },
+  { nombre: 'Hinze' },      { nombre: 'Stanfield' },
+  { nombre: 'Margarethe' }, { nombre: 'Pepi' },
+  { nombre: 'Charlena' },   { nombre: 'Harman' },
+  { nombre: 'Kamilah' },    { nombre: 'Kara' }
+]
+
+db.Personas.find({nombre:{$regex: /^A/}}, {nombre: 1, _id:0})
+[
+    { nombre: 'Asa' },     { nombre: 'Allys' },
+    { nombre: 'Andrew' },  { nombre: 'Archibaldo' },
+    { nombre: 'Ari' },     { nombre: 'Adey' },
+    { nombre: 'Aube' },    { nombre: 'Arri' },
+    { nombre: 'Amye' },    { nombre: 'Adolphus' },
+    { nombre: 'Auberon' }, { nombre: 'Angelika' },
+    { nombre: 'Alleen' },  { nombre: 'Abbey' },
+    { nombre: 'Andris' },  { nombre: 'Angelia' },
+    { nombre: 'Ame' },     { nombre: 'Aurore' },
+    { nombre: 'Arin' },    { nombre: 'Augustine' }
+  ]
+
+  db.Personas.find({apellido:{$regex: /s/}, idioma:'Italian'}, {apellido: 1, email:1, _id:0})
+  [
+    { apellido: 'Purvis', email: 'mpurvis1@mapy.cz' },
+    { apellido: 'Armsden', email: 'aarmsden64@nymag.com' },
+    { apellido: 'Knowlys', email: 'gknowlys7z@economist.com' }
+  ]
+
+  db.Personas.find({}, {nombre: 1, _id:0}).sort({'nombre':-1})
+[
+  { nombre: 'Zorana' },   { nombre: 'Zonnya' },
+  { nombre: 'Zonda' },    { nombre: 'Zena' },
+  { nombre: 'Zelig' },    { nombre: 'Zeb' },
+  { nombre: 'Zared' },    { nombre: 'Yuri' },
+  { nombre: 'Yul' },      { nombre: 'Yorker' },
+  { nombre: 'Yevette' },  { nombre: 'Yankee' },
+  { nombre: 'Yale' },     { nombre: 'Xerxes' },
+  { nombre: 'Wynne' },    { nombre: 'Woodman' },
+  { nombre: 'Woodman' },  { nombre: 'Wittie' },
+  { nombre: 'Winthrop' }, { nombre: 'Winnah' }
+]
+
+db.Personas.find({fec_nac:{$regex: /$01/}, fec_nac:{$regex: /1985$/} }, {nombre: 1, edad:1, _id:0}).sort({'nombre':-1} , {'edad':1})
+[
+    { nombre: 'Zonda', edad: 24 },
+    { nombre: 'Zeb', edad: 62 },
+    { nombre: 'Standford', edad: 81 },
+    { nombre: 'Marlo', edad: 75 },
+    { nombre: 'Marianne', edad: 58 },
+    { nombre: 'Luella', edad: 65 },
+    { nombre: 'Irving', edad: 24 },
+    { nombre: 'Cyndie', edad: 22 },
+    { nombre: 'Courtney', edad: 60 },
+    { nombre: 'Clemens', edad: 82 },
+    { nombre: 'Chevy', edad: 72 },
+    { nombre: 'Alleen', edad: 45 },
+    { nombre: 'Alic', edad: 60 }
+  ]
+
+  db.Personas.find({ fec_nac:{ $regex: /^.*\/01\/1985/ } }, {nombre: 1, edad:1, _id:0}).sort({'nombre':-1} , {'edad':1})
+  [ { nombre: 'Irving', edad: 24 } ]
+
+   db.Personas.find({}, {nombre: 1, _id:0}).sort({'nombre':-1})
+  [
+    { nombre: 'Zorana' },   { nombre: 'Zonnya' },
+    { nombre: 'Zonda' },    { nombre: 'Zena' },
+    { nombre: 'Zelig' },    { nombre: 'Zeb' },
+    { nombre: 'Zared' },    { nombre: 'Yuri' },
+    { nombre: 'Yul' },      { nombre: 'Yorker' },
+    { nombre: 'Yevette' },  { nombre: 'Yankee' },
+    { nombre: 'Yale' },     { nombre: 'Xerxes' },
+    { nombre: 'Wynne' },    { nombre: 'Woodman' },
+    { nombre: 'Woodman' },  { nombre: 'Wittie' },
+    { nombre: 'Winthrop' }, { nombre: 'Winnah' }
+  ]
+  db.Personas.find({}, {nombre: 1, _id:0}).sort({'nombre':-1}).limit(8).skip(2) //limita lod datos a 8 y se salta los dos primeros
+  [
+    { nombre: 'Zonda' },
+    { nombre: 'Zena' },
+    { nombre: 'Zelig' },
+    { nombre: 'Zeb' },
+    { nombre: 'Zared' },
+    { nombre: 'Yuri' },
+    { nombre: 'Yul' },
+    { nombre: 'Yorker' }
+  ]
+  
+
+  db.Productos.find({}, {nombrnombre: 1, precio:1, _id:0 }).sort({'nombre':-1}).limit(20).skip(4)
+  [
+    { nombre: 'Yogurt - Raspberry, 175 Gr', precio: 8782 },
+    { nombre: 'Yogurt - Peach, 175 Gr', precio: 99313 },
+    { nombre: 'Yogurt - Cherry, 175 Gr', precio: 8996 },
+    { nombre: 'Yogurt - Banana, 175 Gr', precio: 27240 },
+    { nombre: 'Yogurt - Banana, 175 Gr', precio: 22569 },
+    { nombre: 'Yogurt - Assorted Pack', precio: 65381 },
+    { nombre: 'Yeast Dry - Fleischman', precio: 31027 },
+    { nombre: 'Wooden Mop Handle', precio: 87007 },
+    { nombre: 'Wooden Mop Handle', precio: 72829 },
+    { nombre: 'Wood Chips - Regular', precio: 89030 },
+    { nombre: 'Wine La Vielle Ferme Cote Du', precio: 50452 },
+    { nombre: 'Wine - Zinfandel Rosenblum', precio: 72797 },
+    { nombre: 'Wine - Zinfandel California 2002', precio: 41785 },
+    { nombre: 'Wine - Zinfandel California 2002', precio: 36732 },
+    { nombre: 'Wine - Winzer Krems Gruner', precio: 22778 },
+    { nombre: 'Wine - White, Schroder And Schyl', precio: 11984 },
+    { nombre: 'Wine - White, Schroder And Schyl', precio: 21055 },
+    { nombre: 'Wine - White, Riesling, Semi - Dry', precio: 44390 },
+    { nombre: 'Wine - White, Ej', precio: 93761 },
+    { nombre: 'Wine - White, Colubia Cresh', precio: 11772 }
+  ]
+
+  ***Insertar
+  db.Productos.insertOne({nombre: 'Piñas - 500gr', precio: 8788})
+  {
+    acknowledged: true,
+    insertedId: ObjectId("64270ebeea723a4ad0c58f7e")
+  }
+
+  db.createCollection('Familia')
+  db.Familia.insertOne({nombre: 'Camila', parentesco: 'hermana', edad: 25, genero: 'F', deportista:true})
+  db.Familia.find({})
+
+  [
+    {
+      _id: ObjectId("64270fe6ea723a4ad0c58f7f"),
+      nombre: 'Camila',
+      parentesco: 'hermana',
+      edad: 25,
+      genero: 'F',
+      deportista: true
+    },
+    {
+      _id: ObjectId("64271034ea723a4ad0c58f80"),
+      nombre: 'Luis',
+      parentesco: 'hermano',
+      edad: 25,
+      genero: 'F',
+      deportista: false
+    },
+    {
+      _id: ObjectId("642711beea723a4ad0c58f81"),
+      nombre: 'Cesar',
+      parentesco: 'padre',
+      edad: 56,
+      genero: 'M',
+      deportista: false
+    }
+  ]
+
+  db.Familia.insertMany([{nombre: 'Lina', parentesco: 'hermana', edad: 25, genero: 'F', deportista:true}, {nombre: 'Luis A', parentesco: 'hermano', edad: 31, genero: 'M', deportista:true}], )
+  {
+    acknowledged: true,
+    insertedIds: {
+      '0': ObjectId("642712ffea723a4ad0c58f82"),
+      '1': ObjectId("642712ffea723a4ad0c58f83")
+    }
+  }
+db.Familia.find()
+[
+    {
+      _id: ObjectId("64270fe6ea723a4ad0c58f7f"),
+      nombre: 'Camila',
+      parentesco: 'hermana',
+      edad: 25,
+      genero: 'F',
+      deportista: true
+    },
+    {
+      _id: ObjectId("64271034ea723a4ad0c58f80"),
+      nombre: 'Luis',
+      parentesco: 'hermano',
+      edad: 25,
+      genero: 'F',
+      deportista: false
+    },
+    {
+      _id: ObjectId("642711beea723a4ad0c58f81"),
+      nombre: 'Cesar',
+      parentesco: 'padre',
+      edad: 56,
+      genero: 'M',
+      deportista: false
+    },
+    {
+      _id: ObjectId("642712ffea723a4ad0c58f82"),
+      nombre: 'Lina',
+      parentesco: 'hermana',
+      edad: 25,
+      genero: 'F',
+      deportista: true
+    },
+    {
+      _id: ObjectId("642712ffea723a4ad0c58f83"),
+      nombre: 'Luis A',
+      parentesco: 'hermano',
+      edad: 31,
+      genero: 'M',
+      deportista: true
+    }
+  ]
