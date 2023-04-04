@@ -388,3 +388,270 @@ db.Familia.find()
       deportista: true
     }
   ]
+
+
+  Ejericio Tareas****
+  
+  Crea base de datos, collection e ingresar un documento
+  use todo_list
+  db.createCollection('Tareas')
+  db.Tareas.insertOne({titulo: 'Estudiar bases de datos', descripcion: 'Revisar documentacion y realizar ejemplo', finalizada:true, categoria: 'estudio'})
+  db.Tareas.find({})
+
+  [
+    {
+      _id: ObjectId("642ae774305b210af6976e74"),
+      titulo: 'Estudiar bases de datos',
+      descripcion: 'Revisar documentacion y realizar ejemplo',
+      finalizada: true,
+      categoria: 'estudio'
+    }
+  ]
+
+
+  db.Tareas.insertMany([{titulo: 'Buscar trabajo', descripcion: 'Revisar hoja de vida y actualizar LinkedIn', finalizada:false, categoria: 'trabajo'}, {titulo: 'Lista de mercado', descripcion: 'Hacer la lista de lo que se debe comprar', finalizada:false, categoria: 'mercado'}, {titulo: 'Estudiar JavaScript', descripcion: 'Revisar documentacion y realizar ejemplo', finalizada:true, categoria: 'estudio'}, {titulo: 'Lavar ropa', descripcion: 'Lavar lo que haya', finalizada:false, categoria: 'oficios'}] )
+
+
+  db.Tareas.find({}).sort({'titulo': -1})
+  [
+    {
+      _id: ObjectId("642aeab5305b210af6976e7d"),
+      titulo: 'Buscar trabajo',
+      descripcion: 'Revisar hoja de vida y actualizar LinkedIn',
+      finalizada: false,
+      categoria: 'trabajo'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e7e"),
+      titulo: 'Lista de mercado',
+      descripcion: 'Hacer la lista de lo que se debe comprar',
+      finalizada: false,
+      categoria: 'mercado'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e7f"),
+      titulo: 'Estudiar JavaScript',
+      descripcion: 'Revisar documentacion y realizar ejemplo',
+      finalizada: true,
+      categoria: 'estudio'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e80"),
+      titulo: 'Lavar ropa',
+      descripcion: 'Lavar lo que haya',
+      finalizada: false,
+      categoria: 'oficios'
+    }
+  ]
+
+
+****eliminar documento
+  db.Tareas.deleteOne({titulo: 'Buscar trabajo'})
+    { acknowledged: true, deletedCount: 1 }
+
+****actualizar documento
+  db.Tareas.updateOne({titulo: 'Lista de mercado'}, {$set:{ descripcion: 'este campo fue modificado'}})
+
+  [
+    {
+      _id: ObjectId("642aeab5305b210af6976e7e"),
+      titulo: 'Lista de mercado',
+      descripcion: 'este campo fue modificado',
+      finalizada: false,
+      categoria: 'mercado'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e7f"),
+      titulo: 'Estudiar JavaScript',
+      descripcion: 'Revisar documentacion y realizar ejemplo',
+      finalizada: true,
+      categoria: 'estudio'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e80"),
+      titulo: 'Lavar ropa',
+      descripcion: 'Lavar lo que haya',
+      finalizada: false,
+      categoria: 'oficios'
+    }
+  ]
+
+  *****agregar un nuevo campo, finalizada
+  db.Tareas.updateMany({}, {$set:{ fecha: '03-04-2023'}})
+  {
+    acknowledged: true,
+    insertedId: null,
+    matchedCount: 3,
+    modifiedCount: 3,
+    upsertedCount: 0
+  }
+
+  [
+    {
+      _id: ObjectId("642aeab5305b210af6976e7e"),
+      titulo: 'Lista de mercado',
+      descripcion: 'este campo fue modificado',
+      finalizada: false,
+      categoria: 'mercado',
+      fecha: '03-04-2023'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e7f"),
+      titulo: 'Estudiar JavaScript',
+      descripcion: 'Revisar documentacion y realizar ejemplo',
+      finalizada: true,
+      categoria: 'estudio',
+      fecha: '03-04-2023'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e80"),
+      titulo: 'Lavar ropa',
+      descripcion: 'Lavar lo que haya',
+      finalizada: false,
+      categoria: 'oficios',
+      fecha: '03-04-2023'
+    }
+  ]
+
+  ****renombrar el campo
+  
+  db.Tareas.updateMany({}, {$rename:{ fecha: 'date'}})
+
+  --La key fecha la cambia a date
+  [
+    {
+      _id: ObjectId("642aeab5305b210af6976e7e"),
+      titulo: 'Lista de mercado',
+      descripcion: 'este campo fue modificado',
+      finalizada: false,
+      categoria: 'mercado',
+      date: '03-04-2023'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e7f"),
+      titulo: 'Estudiar JavaScript',
+      descripcion: 'Revisar documentacion y realizar ejemplo',
+      finalizada: true,
+      categoria: 'estudio',
+      date: '03-04-2023'
+    },
+    {
+      _id: ObjectId("642aeab5305b210af6976e80"),
+      titulo: 'Lavar ropa',
+      descripcion: 'Lavar lo que haya',
+      finalizada: false,
+      categoria: 'oficios',
+      date: '03-04-2023'
+    }
+  ]
+
+  ///////************************/////////////
+  ejercicio clinica
+  use Clinica
+  db.createCollection('pacientes')
+  db.createCollection('medicos')
+  db.createCollection('consulta')
+  db.pacientes.insertOne({Nombre : "Cristian", Apellido: "Fajardo", fec_nac:29-10-2009, Correo:"ElDD@hotmail.com", afiliacion: "pre pagada", eps:"Nueva Eps"})
+  db.pacientes.find({})
+
+  db.medicos.insertOne({nombre:"juan", apellido:"martinez", especialidad:"cardiologia", fec_nac:"25-01-1985", consultorio:"301", correo:"sdf@gmail.com"})
+  db.medicos.find({})
+
+
+consultas
+db.consulta.insertOne({
+nombre_paciente: "Maximiliano",
+apellido_paciente: "Arturo",
+especialidad: "cardiologia",
+nombre_medico: "juan",
+apellido_medico: "martinez",
+fecha_consulta: "15-02-2022",
+hora_consulta:"11:00",
+consultorio: "301",
+costo: 0,
+afiliacion: "subsidiada"
+})
+
+db.consulta.insertOne({
+  nombre_paciente: "ana",
+  apellido_paciente: "garcia",
+  especialidad: "medicina general",
+  nombre_medico: "martha",
+  apellido_medico: "wayne",
+  fecha_consulta: "15-05-2022",
+  hora_consulta:"14:00",
+  consultorio: "105",
+  costo: 4800,
+  afiliacion: "contributiva"
+  })
+
+  db.consulta.insertOne({
+    nombre_paciente: "Cristian",
+    apellido_paciente: "Fajardo",
+    especialidad: "medicina general",
+    nombre_medico: "daniela",
+    apellido_medico: "oviedo",
+    fecha_consulta: "01-03-2022",
+    hora_consulta:"15:00",
+    consultorio: "204",
+    costo: 52000,
+    afiliacion: "pre pagada"
+    })
+
+subsidiada 0
+contributiva 4800
+pre pagada 52000
+
+ARRAY****************
+db.Familia.insertOne({
+  nombre: 'pepito',
+  deportes: ['futbol', 'beisbol' , 'basketball'],
+  edad: 33
+})
+
+db.Familia.find({deportes: {$in : ['futbol']}})
+//me muestra los q contienen ese dato
+db.Familia.find({deportes: {$nin : ['rugby']}})
+//me muestra los q no contiene ese dato
+
+
+db.consulta.insertOne([
+  paciente: {
+    id: 122222222,
+    nombre:'Laura',
+    apellido: 'Rodriguez',
+    correo: 'laura@gmail.com'
+  },
+  medico:{
+    id: 22333333,
+    nombre:'Robert',
+    apellido: 'Ramirez',
+    correo: 'robert@gmail.com'
+  },
+  fecha: newDate: ,
+  total: 4500,
+  motivo: 'dolor de cabeza',
+  espcialidad: 'traumatologia'
+])
+
+db.constulta.insertOne({
+  paciente: {id: 122222222},
+  medico: {id:  22333333} ,
+  fecha: newDate: ,
+  total: 4500,
+  motivo: 'dolor de cabeza',
+  espcialidad: 'traumatologia'
+})
+
+
+Coleccion pacientes
+
+
+
+MERN
+MongoDB
+expressJs
+reactJS
+nodeJS
+
+nom node package manager

@@ -1,0 +1,11 @@
+En la pagina de mongo, dentro de mi cuenta
+En mi database
+connect
+connect trought MongoDB Shell
+opcion I have the MongoDB Shell installed
+copy el script
+abro un cmd
+y pego el script
+mongosh "mongodb+srv://cluster1.5ld4yip.mongodb.net/myFirstDatabase" --apiVersion 1 --username database
+
+y ya puedo empezar a trabajar
