@@ -1,0 +1,49 @@
+verificar la version, node lee .json, lee .jquery
+    node -v
+package json necesatrio para que sirva node
+-inicializar proyecto de node
+    npm init
+        primerProyecto
+        enter
+        Nuestro primer proyecto realizado con       node
+        index.js
+        muchos enter 
+        yes
+me crea un packege.json con sus caracteristicas
+crea un node_modules
+
+creo un index.js con un console.log('Servidor hecho con node');
+en terminal
+    node index.js
+        Servidor hecho con node
+
+reinicie la lectura solo
+    npm install nodemon
+cambia el package.json y agrega package-lock.json
+inicio del servidor y se actualiza solo
+    npx nodemon index.js
+
+
+    Inicializar modulos
+    //MODULOS----inicializacion de modulos http(servidores y responder peticiones HTTP de los usuarios) y file system(fs) para leer el archivo del sistema, lee el index.html y y luego lo pasa al usuario usando un servidor HTTP.
+
+    const http = require("http");
+    const fs = require("fs");
+    CRUD- create, read, update, delete
+
+
+
+
+
+
+
+
+
+    para guardar o añadir paquetes desde consola
+    npm install express --save
+
+
+    get- obtener
+    post- insertar
+    put- modificar o actualizar
+    delete- eliminar
