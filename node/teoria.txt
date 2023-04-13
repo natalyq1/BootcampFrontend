@@ -33,6 +33,7 @@ inicio del servidor y se actualiza solo
 
 ***************
 para guardar o añadir paquetes desde consola
+instalar express y body parser que traduce los datos
     npm install express body-parser --save
     npm i nodemon --save-dev
 **************

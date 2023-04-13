@@ -19,9 +19,11 @@
     <a href="/registro">Registrarse</a>
     <a href="/login">Login</a>
 
-    <input type="text" placeholder="nombre"/>
-    <input type="password" placeholder="contraseña"/>
-    <button onclick="alert('Hola mundo')">Enviar</button>
+    <form action="/sumado" method="post">
+    <input type="number" placeholder="numero 1" name="num1"/>
+    <input type="number" placeholder="numero 2" name="num2"/>
+    <button onclick="alert('Resultado en consola')">Enviar</button>
+</form>
 </body>
 
 </html>
