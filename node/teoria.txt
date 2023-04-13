@@ -31,6 +31,21 @@ inicio del servidor y se actualiza solo
     const fs = require("fs");
     CRUD- create, read, update, delete
 
+***************
+para guardar o añadir paquetes desde consola
+    npm install express body-parser --save
+    npm i nodemon --save-dev
+**************
+
+    REQUEST
+    METODO + URL
+    PUT + HTTP://PERFIL/90899
+
+    RESPONSE
+    CODIGO + DATOS(JSON O ARCHIVO)
+    200 OK + USUARIO: FELIPE
+
+    localhost:3000
 
 
 
@@ -38,9 +53,7 @@ inicio del servidor y se actualiza solo
 
 
 
-
-    para guardar o añadir paquetes desde consola
-    npm install express --save
+    
 
 
     get- obtener
