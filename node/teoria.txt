@@ -2,7 +2,7 @@ verificar la version, node lee .json, lee .jquery
     node -v
 package json necesatrio para que sirva node
 -inicializar proyecto de node
-    npm init
+    *********npm init
         primerProyecto
         enter
         Nuestro primer proyecto realizado con       node
@@ -21,7 +21,7 @@ reinicie la lectura solo
     npm install nodemon
 cambia el package.json y agrega package-lock.json
 inicio del servidor y se actualiza solo
-    npx nodemon index.js
+    ********npx nodemon index.js
 
 
     Inicializar modulos
@@ -34,8 +34,8 @@ inicio del servidor y se actualiza solo
 ***************
 para guardar o añadir paquetes desde consola
 instalar express y body parser que traduce los datos
-    npm install express body-parser --save
-    npm i nodemon --save-dev
+    *******npm install express body-parser --save
+    *******npm i nodemon --save-dev
 **************
 
     REQUEST
