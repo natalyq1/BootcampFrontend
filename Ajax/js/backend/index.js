@@ -12,9 +12,12 @@ app.use("/js", express.static(path.resolve("../frontend/js")));
 
 //Rutas
 app.get("/", function (req, res) {
-  res.sendFile(path.resolve("../frontend/index.html"));
+res.sendFile(path.resolve("../frontend/index.html"));
 });
 
+app.get("/inicio", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
 app.post("/ejemplo_ajax", function (req, res) {
   //capturo datos
   let dato1 = req.body.nombre;

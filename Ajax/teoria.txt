@@ -1,2 +1,23 @@
 AJAX
-Asyncronic javaScript and XML
+Asyncronic javaScript and XML(eXtensible Markup Language)
+es como actualizar una parte de la pagina y no todo, como cuando hay una info actulizada, algo del momento
+
+Se usa JQuery por facilidad
+
+Ejercicio
+menu = Reservas turnos
+nombre apellido
+email
+profesional
+solicitar 
+un mensaje de registro exitoso
+
+menu = turnos
+listar o en tabla
+nombre
+email
+profesional 
+fecha
+
+desde backend
+npx nodemon index.js
