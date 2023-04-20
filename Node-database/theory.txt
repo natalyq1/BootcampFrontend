@@ -1,0 +1,13 @@
+Desde backend/servidor
+terminal
+npm init -y
+npm install express body-parser nodemon --save
+npm i mongoose
+
+en mi index.js
+const mongoose = require("mongoose");
+mongoose.connect ("mongodb+srv://database:database@cluster1.5ld4yip.mongodb.net/ToDoList?retryWrites=true&w=majority")
+
+mongodb.net/ToDoList?retryWrite
+
+npx nodemon index.js
