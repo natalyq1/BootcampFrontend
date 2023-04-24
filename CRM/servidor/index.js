@@ -19,17 +19,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/clientes', async (req, res) => {
-  try {
-    // Buscar todos los clientes en la base de datos usando Mongoose
-    const clientes = await Cliente.find({});
-    // Devolver los clientes como una respuesta JSON
-    res.json(clientes);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error del servidor');
-  }
+app.get('/clientes', (req, res) => {
+  Cliente.find().toArray((error, result) => {
+    if (error) {
+      return console.log(error);
+    }
+    res.json(result);
+  });
 });
+
 
 // Iniciar el servidor
 app.listen(3002, () => {

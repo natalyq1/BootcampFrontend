@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener la tabla y el cuerpo de la tabla
     const table = document.querySelector('table');
-    const tbody = document.querySelector('#customer-list');
+    const tbody = document.querySelector('customer-list');
   
     // Hacer una solicitud a la ruta /clientes
     fetch('/clientes')
