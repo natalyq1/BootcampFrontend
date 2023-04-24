@@ -21,12 +21,15 @@ app.get('/', (req, res) => {
 
 
 app.get('/clientes', (req, res) => {
-  Cliente.find((error, result) => {
-    if (error) {
-      return console.log(error);
-    }
-    res.send(result);
+  Cliente.find({})
+  .then(clientes => {
+    res.json(clientes);
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(500).send("Error interno del servidor");
   });
+
 });
 
 
