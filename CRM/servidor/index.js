@@ -1,39 +1,69 @@
-// Importar los módulos necesarios
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const path = require("path");
 
-// Configurar la conexión a la base de datos
-mongoose.connect('mongodb+srv://database:database@cluster1.5ld4yip.mongodb.net/crm?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Configurar el middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
-app.use("../css", express.static("css"));
-// Importar el modelo de datos Cliente
-const Cliente = require('./models/Clientes');
-
-// Configurar las rutas de Express.js
-app.get('/', (req, res) => {
-  // enviar el archivo HTML con la tabla
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
-
-app.get('/clientes', (req, res) => {
-  Cliente.find({})
-  .then(clientes => {
-    res.json(clientes);
+mongoose
+  .connect(
+    "mongodb+srv://database:database@cluster1.5ld4yip.mongodb.net/crm?retryWrites=true&w=majority"
+  )
+  .then(function (db) {
+    console.log("conectado a la Base de Datos");
   })
-  .catch(err => {
-    console.error(err);
-    res.status(500).send("Error interno del servidor");
+  .catch(function (err) {
+    console.log(err);
   });
 
+//Configuraciones
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/", express.static(path.resolve("../cliente/")));
+
+const Cliente = require("./models/Clientes");
+const Contacto = require("./models/Contactos");
+
+app.use("/css", express.static("css/"));
+//Rutas
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve("../cliente/index.html"));
 });
 
+app.get("/clientes", function (req, res) {
+  res.sendFile(path.resolve("../cliente/clientes.html"));
+});
 
-// Iniciar el servidor
-app.listen(3002, () => {
-  console.log('Servidor iniciado en el puerto 3002');
+app.get("/contact", function (req, res) {
+  res.sendFile(path.resolve("../cliente/contact.html"));
+});
+
+//Ruta -Obtener clientes de la BD
+app.get("/obteinClients", async function (req, res) {
+  let docs = await Cliente.find();
+  res.send(docs);
+});
+
+//Ruta -Obtener contactos de la BD
+app.get("/obteinContacts", async function (req, res) {
+  let docs = await Contacto.find();
+  res.send(docs);
+});
+
+//Capturo datos de registro de un nuevo cliente
+app.post("/new-costumer", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_registro = new Cliente(datos_enviados);
+  await nuevo_registro.save();
+  res.send("Se registro el cliente");
+});
+
+//Capturo datos de registro de un nuevo contacto
+app.post("/new-contact", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_registro = new Contacto(datos_enviados);
+  await nuevo_registro.save();
+  res.send("Se registro el contacto");
+});
+
+app.listen(3000, function () {
+  console.log("Servidor funcionando");
 });

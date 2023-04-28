@@ -1,0 +1,89 @@
+.title-secondary {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(21, 21, 136);
+}
+
+.container-menu {
+    display: flex;
+    justify-content: center;
+    color: rgb(21, 21, 136);
+}
+
+.container {
+    padding: 1em 2em;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(185, 224, 251);
+    box-shadow: 3px 3px 4px black;
+    width: 40%;
+    border-radius: 12px;
+}
+
+.container-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#form_client,
+#form_contact {
+    display: grid;
+    margin: 2em auto;
+    grid-template-columns: auto auto;
+    gap: 15px;
+    border-radius: 12px;
+}
+
+.data-item,
+.data-item5 {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-item label,
+.data-item5 label {
+    margin: 0.3em 0;
+    color: rgb(21, 21, 136);
+}
+
+.data-item5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#btn-add {
+    box-shadow: 2px 2px 3px black;
+    display: flex;
+    justify-self: center;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 0.4em 1em;
+    background-color: rgb(157, 147, 187);
+}
+
+table {
+    margin-top: 1em;
+    margin-bottom: 3em;
+    text-align: center;
+    border-collapse: collapse;
+    color: rgb(21, 21, 136);
+}
+
+thead,
+td {
+    background-color: rgb(185, 224, 251);
+}
+
+table,
+th,
+td {
+    padding: 0.3em 0.5em;
+    border: 2px solid rgb(194, 165, 221);
+}

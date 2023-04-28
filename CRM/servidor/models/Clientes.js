@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//Un esquema es el modelo de datos o la forma de un documento
 let Cliente = new Schema({
   nombre: String,
-  propietario: String,
-  email: String,
+  pais: String,
+  correo: String,
   fecha: String,
-  sintomas: String,
+  telefono: String,
 });
 
-//exporto el modelo que creamos
-module.exports = mongoose.model("clientes", Cliente);
+module.exports = mongoose.model("Clientes", Cliente);

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM -clientes</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="stylesheet" href="./css/style_options.css" />
+</head>
+
+<body>
+    <section class="encabezado">
+        <h1 class="title">Clientes</h1>
+    </section>
+
+    <div class="container-menu">
+        <div class="menu">
+            <a href="/">
+                Inicio </a>
+            <a href="/contact">
+                Contacto</a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div>
+            <h3 class="title-secondary">Información del nuevo cliente</h3>
+        </div>
+        <form id="form_client">
+            <div class="data-item">
+                <label for="">Nombre y apellido:</label>
+                <input type="text" name="nombre" placeholder="Ingrese nombre">
+            </div>
+            <div class="data-item">
+                <label for="">País:</label>
+                <input type="text" name="pais" placeholder="Ingrese pais de origen">
+            </div>
+            <div class="data-item">
+                <label for="">Correo:</label>
+                <input type="email" name="correo" placeholder="Ingrese correo">
+            </div>
+            <div class="data-item">
+                <label for="">Teléfono:</label>
+                <input type="text" name="telefono" placeholder="Ingrese telefono">
+            </div>
+            <div class="data-item">
+                <label for="">Fecha:</label>
+                <input id="inputfecha" type="date" name="fecha">
+            </div>
+            <br>
+            <section>
+                <button id="btn-add" type="submit">Agregar</button>
+            </section>
+        </form>
+    </div>
+
+    <div class="container-table">
+        <h2 class="title-secondary" id="mensaje"></h2>
+        <table id="tabla">
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+            <script src="./script_clientes.js"></script>
+</body>
+
+</html>
