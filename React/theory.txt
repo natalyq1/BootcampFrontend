@@ -1,0 +1,17 @@
+REACT
+una de las bibliotecas de desarrollo de interfaces de usuarios mas importantes de JavaScript.
+Ayuda a construir aplicaciones que usen datos que cambian todo el tiempo
+DOM virtual
+
+
+*************************
+dentro de mi carpeta
+terminal 
+instalar y ejecutar create-react-app
+    npx create-react-app primer-proyecto
+        Happy hacking!
+    cd primer-proyecto
+    npm start
+  
+  
+*************************

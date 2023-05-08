@@ -1,0 +1,15 @@
+.tabla{
+    border-collapse:collapse;
+    margin: 2em auto;
+}
+.tabla th{
+    border: 2px solid green;
+    padding: 0.4em 1em;
+    background-color:  rgba(164, 213, 164, 0.985);
+}
+.tabla td{
+    border: 2px solid green;
+    padding: 0.4em 1em;
+    background-color: rgba(164, 213, 164, 0.5);
+    
+}
