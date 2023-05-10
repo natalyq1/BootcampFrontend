@@ -1,0 +1,31 @@
+
+body{
+  padding: 30px 50px;
+  background: rgb(193, 189, 189);
+}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  height: 550px;
+  min-width: 600px;
+}
+.contenedor{
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px ;
+  padding: 16px;
+  margin: 16px 0;
+}
+.contenedor img{
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.contenedor span{
+  font-size: 20px;
+  margin-right: 15px;
+}
